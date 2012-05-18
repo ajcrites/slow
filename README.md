@@ -1,4 +1,4 @@
-# ```slow```
+# ```slow``` (0.0)
 
 ```slow``` is a shell utility that reads input and prints it out in a delayed fashion.  You can specify how many lines you want to print at a time as well as the delay between each chunk of lines.
 
@@ -12,6 +12,8 @@ Move ```src/slow``` to somewhere on your ```$PATH```.
 
 ## Usage
     slow [-l <lines-to-print-at-once>] [-d <time-delay>]
+
+It should generally be used with a pipe.
 
 ### Options
 
