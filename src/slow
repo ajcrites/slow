@@ -23,13 +23,19 @@ for opt, optarg in opts:
       print "Usage: %s [-l <lines-to-print-at-once>] [-d <time-delay>] <data>" % sys.argv[0]
       sys.exit(0)
    if opt == '-l':
-      if int(optarg) < 1:
+      try:
+         if int(optarg) < 1:
+            __fatal__("Lines to print at once must be an integer greater than zero")
+         lines = int(optarg)
+      except ValueError:
          __fatal__("Lines to print at once must be an integer greater than zero")
-      lines = float(optarg)
    if opt == '-d':
-      if float(optarg) < 0:
-         __fatal__("Delay cannot be negative")
-      delay = float(optarg)
+      try:
+         if float(optarg) < 0:
+            __fatal__("Delay cannot be negative")
+         delay = float(optarg)
+      except ValueError:
+         __fatal__("Delay must be a decimal number greater than zero")
 
 if delay <= 0:
    print "No delay"
